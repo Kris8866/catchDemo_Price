@@ -1,20 +1,20 @@
    目前，为了加速页面的加载速度，页面的很多部分都是用JS生成的，而对于用scrapy爬虫来说就是一个很大的问题，
-因为scrapy没有JS engine，所以爬取的都是静态页面，对于JS生成的动态页面都无法获得。
+<br>因为scrapy没有JS engine，所以爬取的都是静态页面，对于JS生成的动态页面都无法获得。
 
-· 解决方案：
-  · 利用第三方中间件来提供JS渲染服务： scrapy-splash 等。
-  · 利用webkit或者基于webkit库
+* 解决方案：
+  * 利用第三方中间件来提供JS渲染服务： scrapy-splash 等
+  * 利用webkit或者基于webkit库
   
   Demo使用Splash：
-  Splash是一个Javascript渲染服务。
-  它是一个实现了HTTP API的轻量级浏览器。
-  Splash是用Python实现的，同时使用Twisted和QT。
-  Twisted（QT）用来让服务具有异步处理能力，以发挥webkit的并发能力。
+ <br> Splash是一个Javascript渲染服务。
+ <br> 它是一个实现了HTTP API的轻量级浏览器。
+ <br> Splash是用Python实现的，同时使用Twisted和QT。
+ <br> Twisted（QT）用来让服务具有异步处理能力，以发挥webkit的并发能力。
   
-· 步骤：
-  1、安装DockerToolbox
-  2、安装scrapy-splash，执行语句：pip install scrapy-splash
-  3、修改settings.py：
+* 步骤：
+  * 安装DockerToolbox
+  * 安装scrapy-splash，执行语句：pip install scrapy-splash
+  * 修改settings.py：
   
       SPLASH_URL = 'http://192.168.99.100:8050'  
 
@@ -33,6 +33,6 @@
       HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
 
 
-   4、重写爬虫的strat_request方法
+  * 重写爬虫的strat_request方法
 
   
